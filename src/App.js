@@ -16,7 +16,7 @@ const App = () => (
   <div className="app">
     <div className="line bottom clearfix"></div>
       <Router>
-        <HeadMenu/>
+          <HeadMenu/>
         <div className="main container">
             <Suspense fallback={<Loading fullscreen={true}/>}>
               <Switch>

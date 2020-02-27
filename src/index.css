@@ -57,3 +57,8 @@ body {
 .cart_img {
   width: 50px;
 }
+
+.cart_badge .el-badge__content {
+  top: 18px !important;
+  right: 18px !important;
+}

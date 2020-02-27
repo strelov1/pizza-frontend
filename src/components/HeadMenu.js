@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, Badge } from 'element-react';
-
+import { Menu } from 'element-react';
+import { CartIcon } from './CartIcon';
 
 
 const HeadMenu = () => {
@@ -16,9 +16,7 @@ const HeadMenu = () => {
            
              <Menu.Item index="5" className="cart">
                 <Link to="/cart">
-                    <Badge value={ 0 }>
-                        <img src="/img/cart.svg" alt="cart" className="cart_img"/>
-                    </Badge>
+                   <CartIcon/>
                 </Link>
              </Menu.Item>
         </Menu>
