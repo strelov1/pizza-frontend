@@ -21,3 +21,39 @@ body {
   margin: 0 auto;
   box-sizing: border-box;
 }
+
+.app .image {
+  width: 100%;
+  height: 100%;
+}
+
+.space {
+  padding: 40px;
+}
+
+.logo {
+  width: 50px;
+}
+
+.menu {
+  padding-left: 5% !important;
+}
+
+.logo_text {
+  text-decoration: none;
+}
+.logo_text span {
+  padding-left: 10px;
+  color: #000;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.cart {
+  float: right !important;
+  margin-right: 5% !important;
+}
+
+.cart_img {
+  width: 50px;
+}

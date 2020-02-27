@@ -1,17 +1,26 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Menu } from 'element-react';
+import { Menu, Badge } from 'element-react';
+
 
 
 const HeadMenu = () => {
     return (
-        <Menu defaultActive="1" className="el-menu-demo" mode="horizontal">
-          <Link to="/">
-            <Menu.Item index="1">Home</Menu.Item>
-          </Link>
-          <Link to="/cart">
-            <Menu.Item index="3">Cart</Menu.Item>
-          </Link>
+        <Menu defaultActive="1" className="menu" mode="horizontal">
+            <Menu.Item index="1">
+                <Link to="/" className="logo_text">
+                    <img src="/img/logo.svg" alt="logo" className="logo"/>
+                    <span>Pizza Test</span>
+                </Link>
+            </Menu.Item>
+           
+             <Menu.Item index="5" className="cart">
+                <Link to="/cart">
+                    <Badge value={ 0 }>
+                        <img src="/img/cart.svg" alt="cart" className="cart_img"/>
+                    </Badge>
+                </Link>
+             </Menu.Item>
         </Menu>
     )
 }
