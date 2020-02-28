@@ -4,6 +4,7 @@ import { Layout, Loading } from 'element-react';
 import { getCatalog } from '../Api'
 import Product from './Product'
 
+
 const Catalog = () => {
 
   const [isLoading, setLoading] = useState(true);

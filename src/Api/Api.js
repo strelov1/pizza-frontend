@@ -13,22 +13,16 @@ class Api {
 
     async get(url, params = {}) {
         return this.client.get(url, params)
-        .then((response) => {
-          return response.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });;
+          .then((response) => {
+            return response.data;
+          });
     }
 
     async post(url, data, params = {}) {
         return await this.client.post(url, data, params)
-        .then((response) => {
-          return response.data;
-        })
-        .catch(function (error) {
-          console.log(error);
-        });;
+          .then((response) => {
+            return response.data;
+          });
     }
 
 }
