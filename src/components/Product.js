@@ -10,7 +10,7 @@ const Product = ({product}) => {
   const dispatch = useGlobalDispatch()
 
   const addCartClick = () => {
-    return addCart(product.id).then((data) => {
+    return addCart(product.id, 1).then((data) => {
       dispatch({type: 'set', count: data.count});
     }).catch((error) => {
       dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
@@ -20,7 +20,7 @@ const Product = ({product}) => {
   return (
     <Card bodyStyle={{ padding: 20}} id={product.id}>
       <img src={"https://img1.wsimg.com/isteam/stock/2999"} className="image" alt="pizza" />
-        <div className="bottom clearfix" className="product_cart_inner">
+        <div className="bottom clearfix product_cart_inner">
           <h3>Pizza {product.name}</h3>
           <div className="bottom clearfix">
             </div>
