@@ -13,8 +13,6 @@ body {
   padding-bottom: 95px;
 }
 
-
-
 .app .container {
   width: 1140px;
   padding: 0 30px;
@@ -42,6 +40,7 @@ body {
 .logo_text {
   text-decoration: none;
 }
+
 .logo_text span {
   padding-left: 10px;
   color: #000;
@@ -61,4 +60,15 @@ body {
 .cart_badge .el-badge__content {
   top: 18px !important;
   right: 18px !important;
+}
+
+.box-card {
+    margin-top: 40px;
+}
+.el-card__body {
+  padding: 0 !important;
+}
+
+.product_cart_inner {
+  padding: 10px;
 }

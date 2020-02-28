@@ -18,23 +18,20 @@ const Product = ({product}) => {
   }
 
   return (
-    <Card bodyStyle={{ padding: 10}} id={product.id}>
+    <Card bodyStyle={{ padding: 20}} id={product.id}>
       <img src={"https://img1.wsimg.com/isteam/stock/2999"} className="image" alt="pizza" />
-      <div>
-        <div className="bottom clearfix">
+        <div className="bottom clearfix" className="product_cart_inner">
+          <h3>Pizza {product.name}</h3>
+          <div className="bottom clearfix">
+            </div>
 
-        <h3>Pizza {product.name}</h3>
-        <div className="bottom clearfix">
-          </div>
+              <Button plain={true} type="info" onClick={addCartClick}>
+                Add Card
+              </Button>
 
-            <Button plain={true} type="info" onClick={addCartClick}>
-              Add Card
-            </Button>
-
-          <span className="space"></span>
-          <Tag type="gray">$10</Tag>
+            <span className="space"></span>
+            <Tag type="gray">$10</Tag>
         </div>
-      </div>
     </Card>
   );
 }

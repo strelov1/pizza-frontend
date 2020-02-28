@@ -9,3 +9,7 @@ export const addCart = (id) => {
 export const getCount = () => {
     return api.get('/cart/count');
 }
+
+export const getCartContent = () => {
+    return api.get('/cart/content');
+}

@@ -14,7 +14,7 @@ const HeadMenu = () => {
                 </Link>
             </Menu.Item>
            
-             <Menu.Item index="5" className="cart">
+             <Menu.Item index="2" className="cart">
                 <Link to="/cart">
                    <CartIcon/>
                 </Link>
