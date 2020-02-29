@@ -29,7 +29,7 @@ const CartContent = () => {
     setLoading(true);
 
     return updateCart(productId, count).then((data) => {
-      dispatch({type: 'set', count: data.count});
+      dispatch({type: 'setCount', count: data.count});
       setLoading(false);
     }).catch((error) => {
       dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
@@ -42,8 +42,8 @@ const CartContent = () => {
         <Layout.Row>
             {isLoading ? <Loading/> : products.map((product) => {
                 return (
-                <Layout.Col style={{padding: 20}} key={product.id}>
-                    <Card bodyStyle={{ padding: 20}} >
+                <Layout.Col style={{padding: 10}} key={product.id}>
+                    <Card bodyStyle={{ padding: 10}} >
 
                       <Layout.Row gutter="12">
                         <Layout.Col span="6">

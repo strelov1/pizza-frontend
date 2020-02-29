@@ -5,14 +5,14 @@ const DispatchContext = React.createContext()
 
 function reducer(state, action) {
   switch (action.type) {
-    case 'set': {
-      return {count: action.count}
+    case 'setCount': {
+      return {...state, count: action.count}
     }
     case 'addFlash': {
-      return {flash: action.flash}
+      return {...state, flash: action.flash}
     }
     case 'switchCurrency': {
-      return {currency: action.currency}
+      return {...state, currency: action.currency}
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)

@@ -12,7 +12,7 @@ export const CartIcon = () => {
 
   useEffect(() => {
     getCount().then((data) => {
-        dispatch({type: 'set', count: data.count})
+        dispatch({type: 'setCount', count: data.count})
         setLoading(false)
     }).catch((error) => {
         console.log('getCount:', error)

@@ -12,7 +12,7 @@ const Product = ({product}) => {
 
   const addCartClick = () => {
     return addCart(product.id, 1).then((data) => {
-      dispatch({type: 'set', count: data.count});
+      dispatch({type: 'setCount', count: data.count});
     }).catch((error) => {
       dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
     });

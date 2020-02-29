@@ -12,21 +12,22 @@ const Cart = () => {
             className="box-card"
             header={
               <div className="clearfix">
-                <Layout.Row gutter="10">
-                <Layout.Col span="20">
-                  <Steps space={200} active={1}>
-                    <Steps.Step title="Cart" description="Choose quantity"></Steps.Step>
-                    <Steps.Step title="Order" description="Checkout"></Steps.Step>
-                    <Steps.Step title="Accepted" description="Accepted"></Steps.Step>
-                  </Steps>
+                <Layout.Row gutter="20">
+                  <Layout.Col span="18">
+                    <Steps space={200} active={1} style={{padding: 20}}>
+                      <Steps.Step title="Cart" description="Choose quantity"></Steps.Step>
+                      <Steps.Step title="Order" description="Checkout"></Steps.Step>
+                      <Steps.Step title="Accepted" description="Accepted"></Steps.Step>
+                    </Steps>
                   </Layout.Col>
-                <Layout.Col span="20"> 
-                <span style={{ "float": "right" }}>
-                  <Link to="/order">
-                    <Button type="primary">Apply Order</Button>
-                  </Link>
-                </span>
-                </Layout.Col>
+
+                  <Layout.Col span="6" style={{ "float": "right", padding: 20 }}> 
+                    <div>
+                      <Link to="/order">
+                        <Button size="large" type="primary">Apply Order</Button>
+                      </Link>
+                    </div>
+                  </Layout.Col>
                 </Layout.Row>
               </div>
             }
