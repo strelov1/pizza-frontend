@@ -25,6 +25,12 @@ body {
   height: 100%;
 }
 
+.el-card .image {
+  width: 200px;
+  padding-left: 20px;
+  height: 200px;
+}
+
 .space {
   padding: 40px;
 }
@@ -71,4 +77,8 @@ body {
 
 .product_cart_inner {
   padding: 10px;
+}
+
+.oder_card {
+  padding: 20px;
 }

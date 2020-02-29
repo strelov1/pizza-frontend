@@ -12,6 +12,7 @@ import { Flash } from './components/Flash';
 
 const Home = lazy(() => import('./routes/Home'));
 const Cart = lazy(() => import('./routes/Cart'));
+const Order = lazy(() => import('./routes/Order'));
 
 
 const App = () => (
@@ -28,7 +29,8 @@ const App = () => (
             <Suspense fallback={<Loading fullscreen={true}/>}>
               <Switch>
                   <Route exact path="/" component={Home}/>
-                <Route exact path="/cart" component={Cart}/>
+                  <Route exact path="/cart" component={Cart}/>
+                  <Route exact path="/order" component={Order}/>
               </Switch>
             </Suspense>
         </div>

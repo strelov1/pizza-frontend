@@ -12,8 +12,8 @@ const CartContent = () => {
   const dispatch = useGlobalDispatch()
 
   useEffect(() => {
-    getCartContent().then((data) => {
-      loadProducts(data);
+    getCartContent().then((response) => {
+      loadProducts(response.data);
       setLoading(false);
     }).catch((error) => {
       console.log('getCartContent:', error);
@@ -39,28 +39,29 @@ const CartContent = () => {
   return (
     <div className="catalog">
         <Layout.Row>
-            {!isLoading && products.map((product) => {
+            {isLoading ? <Loading/> : products.map((product) => {
                 return (
                 <Layout.Col style={{padding: 20}} key={product.id}>
                     <Card bodyStyle={{ padding: 20}} >
 
                       <Layout.Row gutter="12">
                         <Layout.Col span="6">
-                          <img src={"https://img1.wsimg.com/isteam/stock/2999"} className="image" alt="pizza" />
+                          <img src={product.image} className="image" alt="pizza" />
                         </Layout.Col>
 
                         <Layout.Col span="6">
                           <div className="bottom clearfix">
-                            <h3>Pizza {product.name} {product.id}</h3>
+                            <h3>{product.name}</h3>
                             <div className="bottom clearfix">
                               <Button.Group>
 
-                              <Button type="danger" plain={true} icon="delete"></Button>
+                               <Button type="danger" plain={true} icon="delete" onClick={(count) => {
+                                    updateOrder(product.id, 0);
+                                }}/>
                                 <InputNumber defaultValue={product.count} value={product.count} min="0" max="10" onChange={(count) => {
                                     updateOrder(product.id, count);
                                 }}/>
                                 
-
                               </Button.Group>
                             </div>
                             <div className="bottom clearfix">

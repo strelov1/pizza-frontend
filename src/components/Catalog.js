@@ -12,8 +12,8 @@ const Catalog = () => {
 
   useEffect(() => {
 
-    getCatalog().then((data) => {
-      loadProducts(data);
+    getCatalog().then((response) => {
+      loadProducts(response.data);
       setLoading(false)
     });
  

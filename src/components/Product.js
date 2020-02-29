@@ -19,10 +19,10 @@ const Product = ({product}) => {
 
   return (
     <Card bodyStyle={{ padding: 20}} id={product.id}>
-      <img src={"https://img1.wsimg.com/isteam/stock/2999"} className="image" alt="pizza" />
+      <img src={product.image} className="image" alt="pizza" />
         <div className="bottom clearfix product_cart_inner">
-          <h3>Pizza {product.name}</h3>
-          <div className="bottom clearfix">
+          <h3>{product.name}</h3>
+          <div className="bottom">
             </div>
 
               <Button plain={true} type="info" onClick={addCartClick}>
