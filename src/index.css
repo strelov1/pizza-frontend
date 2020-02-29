@@ -91,3 +91,8 @@ body {
 .price {
   margin-left: 20px;
 }
+
+.medium {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}

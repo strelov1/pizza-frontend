@@ -69,8 +69,8 @@ const CartContent = () => {
                               <h4>
                               Price: {
                                 currency === 'EUR' ?
-                                <span>€ {product.price.eur * product.count}</span>  :
-                                <span>$ {product.price.usd * product.count}</span>
+                                <span>€ {parseFloat(product.price.eur * product.count).toFixed(2)}</span>  :
+                                <span>$ {parseFloat(product.price.usd * product.count).toFixed(2)}</span>
                               }
                               </h4>
                             </div>
