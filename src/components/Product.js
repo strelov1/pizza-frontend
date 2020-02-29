@@ -2,12 +2,13 @@ import React from 'react';
 import { Card, Button, Tag } from 'element-react';
 import { addCart } from '../Api'
 
-import { useGlobalDispatch } from '../GlabalStateProvider'
+import { useGlobalDispatch, useGlobalState } from '../GlabalStateProvider'
 
 
 const Product = ({product}) => {
  
-  const dispatch = useGlobalDispatch()
+  const dispatch = useGlobalDispatch();
+  const { currency } = useGlobalState();
 
   const addCartClick = () => {
     return addCart(product.id, 1).then((data) => {
@@ -22,15 +23,17 @@ const Product = ({product}) => {
       <img src={product.image} className="image" alt="pizza" />
         <div className="bottom clearfix product_cart_inner">
           <h3>{product.name}</h3>
-          <div className="bottom">
-            </div>
 
               <Button plain={true} type="info" onClick={addCartClick}>
                 Add Card
               </Button>
-
-            <span className="space"></span>
-            <Tag type="gray">$10</Tag>
+            <Tag className="price" type="gray">
+              {
+                currency === 'EUR' ?
+                <span>€ {product.price.eur}</span>  :
+                <span>$ {product.price.usd}</span>
+              }
+             </Tag>
         </div>
     </Card>
   );

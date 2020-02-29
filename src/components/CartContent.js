@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Layout, Loading, Card, InputNumber, Button } from 'element-react';
 import { getCartContent, updateCart } from '../Api'
-import { useGlobalDispatch } from '../GlabalStateProvider'
+import { useGlobalDispatch, useGlobalState } from '../GlabalStateProvider'
 
 
 const CartContent = () => {
@@ -10,6 +10,7 @@ const CartContent = () => {
   const [isLoading, setLoading] = useState(true);
   const [products, loadProducts] = useState([]);
   const dispatch = useGlobalDispatch()
+  const { currency } = useGlobalState();
 
   useEffect(() => {
     getCartContent().then((response) => {
@@ -65,7 +66,13 @@ const CartContent = () => {
                               </Button.Group>
                             </div>
                             <div className="bottom clearfix">
-                              <h4>Price: $10</h4>
+                              <h4>
+                              Price: {
+                                currency === 'EUR' ?
+                                <span>€ {product.price.eur * product.count}</span>  :
+                                <span>$ {product.price.usd * product.count}</span>
+                              }
+                              </h4>
                             </div>
                           </div>
                         </Layout.Col>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const StateContext = React.createContext()
+const StateContext = React.createContext({count: 0, flash: [], currency: "USD"})
 const DispatchContext = React.createContext()
 
 function reducer(state, action) {
@@ -11,6 +11,9 @@ function reducer(state, action) {
     case 'addFlash': {
       return {flash: action.flash}
     }
+    case 'switchCurrency': {
+      return {currency: action.currency}
+    }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`)
     }
@@ -18,7 +21,7 @@ function reducer(state, action) {
 }
 
 function StateProvider({children}) {
-  const [state, dispatch] = React.useReducer(reducer, {count: 0, flash: []})
+  const [state, dispatch] = React.useReducer(reducer, {count: 0, flash: [], currency: "USD"})
   return (
     <StateContext.Provider value={state}>
       <DispatchContext.Provider value={dispatch}>

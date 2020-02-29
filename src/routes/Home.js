@@ -13,7 +13,7 @@ const Home = () => {
             [1,2,3].map((item, index) => {
               return (
                 <Carousel.Item key={index}>
-                  <img src="https://img1.wsimg.com/isteam/stock/2999" class="image" alt="pizza"/>
+                  <img src="https://img1.wsimg.com/isteam/stock/2999" className="image" alt="pizza"/>
                 </Carousel.Item>
               )
             })

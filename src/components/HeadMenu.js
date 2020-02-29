@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'element-react';
 import { CartIcon } from './CartIcon';
+import { SwitchLanguage } from './SwitchLanguage';
 
 
 const HeadMenu = () => {
@@ -13,11 +14,15 @@ const HeadMenu = () => {
                     <span>Pizza Test</span>
                 </Link>
             </Menu.Item>
+
            
-             <Menu.Item index="2" className="cart">
+             <Menu.Item index="3" className="cart">
                 <Link to="/cart">
                    <CartIcon/>
                 </Link>
+             </Menu.Item>
+             <Menu.Item index="2" className="currency">
+                <SwitchLanguage/>
              </Menu.Item>
         </Menu>
     )
