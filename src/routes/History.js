@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Layout, Card, Button, Steps } from 'element-react';
+import { Layout, Card } from 'element-react';
 import HistoryContent from '../components/HistoryContent'
 
 const History = () => {
