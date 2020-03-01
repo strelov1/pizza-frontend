@@ -94,9 +94,9 @@ const Order = ({order, currency}) => {
 
             if ((columns[i]['property']) == 'price') {
               const mark = (currency === 'EUR') ? "€": "$";
-              dataList[i] = isNaN(total) ? "" : mark + total;
+              dataList[i] = isNaN(total) ? "" : mark + total.toFixed(2);
             } else {
-              dataList[i] = isNaN(total) ? "" : total;
+              dataList[i] = isNaN(total) ? "" : total.toFixed(2);
             }
             
           }

@@ -16,8 +16,6 @@ export const CartIcon = () => {
         setLoading(false)
     }).catch((error) => {
         setLoading(false);
-        const message = error.response ? error.response.data.error.message : "Server Error";
-        dispatch({type: 'addFlash', flash: [{title: message, type: "error"}]})
     });
   }, []);
 
