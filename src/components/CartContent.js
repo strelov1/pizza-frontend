@@ -39,6 +39,14 @@ const CartContent = () => {
     });
   };
 
+  const calcTotalPrice = (products) => {
+      const mark = (currency === 'EUR') ? "€ " : "$ "
+      return mark + products.reduce((acc, product) => {
+        const price = (currency === 'EUR') ? product.price.eur : product.price.usd;
+        return acc + (price * product.count);
+      }, 0).toFixed(2);
+  }
+
   return (
     <div className="catalog">
         <Layout.Row>
@@ -78,12 +86,6 @@ const CartContent = () => {
                             </div>
                           </div>
                         </Layout.Col>
-                        
-                        <Layout.Col span="6">
-                          <div className="bottom clearfix">
-                          </div>
-                        </Layout.Col>
-
                       </Layout.Row>
                       
                     </Card>
@@ -91,6 +93,11 @@ const CartContent = () => {
                 )
             })}
         </Layout.Row>
+        <Layout.Col span="6">
+          <div className="bottom clearfix total_price">
+          <h3>Total price: {isLoading ? <Loading/> : calcTotalPrice(products)}</h3>
+          </div>
+        </Layout.Col>
     </div>
   )
 }

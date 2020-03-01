@@ -104,3 +104,7 @@ body {
   color: red;
   padding-left: 4px;
 }
+
+.total_price {
+  padding: 20px;
+}
