@@ -15,6 +15,8 @@ const Catalog = () => {
     getCatalog().then((response) => {
       loadProducts(response.data);
       setLoading(false)
+    }).catch((error) => {
+        setLoading(false);
     });
  
   }, []);
