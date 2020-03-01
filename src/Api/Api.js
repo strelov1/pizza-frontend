@@ -7,7 +7,6 @@ class Api {
 
         this.client = axios.create({
             baseURL: process.env.REACT_APP_ENV_BACKEND_URL,
-            timeout: 1000,
             headers: {
                 "Content-Type": "application/json",
             },
@@ -26,7 +25,7 @@ class Api {
 
     authorizationHanler = (request) => {
       if (! this.tokenSevice.getToken() && request.url.indexOf('/token/issue') !== 0) {
-            console.log('Issue Token')
+            console.log('Issue Token', this.tokenSevice.getToken())
             this.issueToken().then(response => {
                 const token = response.data.token;
                 this.tokenSevice.saveStorage(token);
