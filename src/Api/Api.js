@@ -24,7 +24,6 @@ class Api {
     }
 
     authorizationHanler = (request) => {
-      console.log('Token', this.tokenSevice.getToken(), request.url, request.url.indexOf('/catalog'))
       if (! this.tokenSevice.getToken() && request.url.indexOf('/token/issue') !== 0) {
             console.log('Issue Token')
             this.issueToken().then(response => {
@@ -57,4 +56,4 @@ class Api {
 
 }
 
-export default Api;
+export const api = new Api({baseURL: 'http://100.0.19.4/api/v1'})
