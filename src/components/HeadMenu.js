@@ -14,15 +14,20 @@ const HeadMenu = () => {
                     <span>Pizza Test</span>
                 </Link>
             </Menu.Item>
-
-           
+            
              <Menu.Item index="3" className="cart">
                 <Link to="/cart">
                    <CartIcon/>
                 </Link>
              </Menu.Item>
+
              <Menu.Item index="2" className="currency">
                 <SwitchLanguage/>
+             </Menu.Item>
+             <Menu.Item index="4" className="menu_history">
+                <Link to="/history">
+                   <span>Order history</span>
+                </Link>
              </Menu.Item>
         </Menu>
     )

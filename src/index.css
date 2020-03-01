@@ -55,7 +55,10 @@ body {
 }
 
 .currency {
+  float: right !important;
+}
 
+.menu_history {
   float: right !important;
 }
 

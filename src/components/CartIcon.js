@@ -11,12 +11,12 @@ export const CartIcon = () => {
   const { count } = useGlobalState();
 
   useEffect(() => {
-    getCount().then((data) => {
-        dispatch({type: 'setCount', count: data.count})
+    getCount().then((response) => {
+        dispatch({type: 'setCount', count: response.data.count})
         setLoading(false)
     }).catch((error) => {
-        console.log('getCount:', error)
-        dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
+        const message = error.response.data.error.message ?? "Server Error";
+        dispatch({type: 'addFlash', flash: [{title: message, type: "error"}]})
         setLoading(false);
     });
   }, []);

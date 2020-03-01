@@ -2,28 +2,32 @@ import React from 'react';
 import { useHistory } from 'react-router-dom'
 import { Layout, Form, Button, Input, TimePicker, Radio } from 'element-react';
 
-import { createOrder } from '../Api'
+import { createOrder, getlastOrderData } from '../Api'
 import { useGlobalDispatch } from '../GlabalStateProvider'
 
 class OrderFormWitoutState extends React.Component {
     
     constructor(props) {
         super(props);
-      
         this.state = {
           form: {
             name: '',
-            phone_number: '',
+            phone: '',
             street: '',
             house: '',
             flat: '',
             flour: '',
             delivery_time: null,
-            comment: '',
             payment_way: '',
           },
           errors: {}
         };
+
+        getlastOrderData().then(response => {
+          if (response.data && response.status === 1) {
+              this.setState({form: response.data});
+          }
+        });
 
         this.onSubmit.bind(this);
       }
@@ -34,7 +38,7 @@ class OrderFormWitoutState extends React.Component {
         createOrder(this.state.form)
           .then((response) => {
             this.setState({errors: {}});
-            if (response.data && response.data.status === 1) {
+            if (response.data && response.status === 1) {
             
                 this.props.dispatch({
                   type: 'addFlash', flash: [{title: "Order created", type: "success"}]
@@ -43,7 +47,7 @@ class OrderFormWitoutState extends React.Component {
                   type: 'setCount', count: 0
                 });
 
-                this.props.history.push('/');
+                this.props.history.push('/history');
             }
           })
           .catch(error => {
@@ -87,10 +91,10 @@ class OrderFormWitoutState extends React.Component {
                 <Layout.Col>
                     <Layout.Col span="12">
                         <Input
-                          value={this.state.form.phone_number}
-                          onChange={this.onChange.bind(this, 'phone_number')}
+                          value={this.state.form.phone}
+                          onChange={this.onChange.bind(this, 'phone')}
                         />
-                        <div className="form-error">{this.attributeError('phone_number')}</div>
+                        <div className="form-error">{this.attributeError('phone')}</div>
                     </Layout.Col>
                 </Layout.Col>
             </Form.Item>
@@ -136,19 +140,6 @@ class OrderFormWitoutState extends React.Component {
                     <div className="form-error">{this.attributeError('delivery_time')}</div>
                   </Layout.Col>
             </Form.Item>
-
-            <Form.Item label="Comment">
-                <Layout.Col span="12">
-                  <Input
-                    type="textarea"
-                    value={this.state.form.comment}
-                    onChange={this.onChange.bind(this, 'comment')}
-                  />
-                  <div className="form-error">{this.attributeError('comment')}</div>
-                </Layout.Col>
-            </Form.Item>
-
-
 
             <Form.Item label="Payment way" required={true}>
                 <Layout.Col span="12">

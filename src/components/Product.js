@@ -11,10 +11,11 @@ const Product = ({product}) => {
   const { currency } = useGlobalState();
 
   const addCartClick = () => {
-    return addCart(product.id, 1).then((data) => {
-      dispatch({type: 'setCount', count: data.count});
+    return addCart(product.id, 1).then((response) => {
+      dispatch({type: 'setCount', count: response.data.count});
     }).catch((error) => {
-      dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
+      const message = error.response.data.error.message ?? "Server Error";
+      dispatch({type: 'addFlash', flash: [{title: message, type: "error"}]})
     });
   }
 

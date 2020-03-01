@@ -28,11 +28,13 @@ const CartContent = () => {
   const updateOrder = (productId, count) => {
     setLoading(true);
 
-    return updateCart(productId, count).then((data) => {
-      dispatch({type: 'setCount', count: data.count});
+    return updateCart(productId, count).then((response) => {
+      dispatch({type: 'setCount', count: response.data.count});
       setLoading(false);
     }).catch((error) => {
-      dispatch({type: 'addFlash', flash: [{title: "Server Error", type: "error"}]})
+       const message = error.response.data.error.message ?? "Server Error";
+        dispatch({type: 'addFlash', flash: [{title: message, type: "error"}]})
+        setLoading(false);
       setLoading(false);
     });
   };
