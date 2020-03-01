@@ -3,9 +3,10 @@ import axios from 'axios';
 import { Token } from "./Token"
 
 class Api {
-    constructor({baseURL}) {
+    constructor() {
+
         this.client = axios.create({
-            baseURL: baseURL,
+            baseURL: process.env.REACT_APP_ENV_BACKEND_URL,
             timeout: 1000,
             headers: {
                 "Content-Type": "application/json",
@@ -56,4 +57,4 @@ class Api {
 
 }
 
-export const api = new Api({baseURL: 'http://100.0.19.4/api/v1'})
+export const api = new Api()
