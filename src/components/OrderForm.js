@@ -39,6 +39,9 @@ class OrderFormWitoutState extends React.Component {
                 this.props.dispatch({
                   type: 'addFlash', flash: [{title: "Order created", type: "success"}]
                 });
+                this.props.dispatch({
+                  type: 'setCount', count: 0
+                });
 
                 this.props.history.push('/');
             }
