@@ -20,7 +20,7 @@
     "serve": "^11.3.0"
   },
   "scripts": {
-    "start": "REACT_APP_ENV_BACKEND_URL=https://thawing-plateau-19631.herokuapp.com/api/v1 NODE_ENV=production node server.js",
+    "start": "serve -s build",
     "watch": "REACT_APP_ENV_BACKEND_URL=http://100.0.19.4/api/v1 react-scripts start",
     "build": "REACT_APP_ENV_BACKEND_URL=https://thawing-plateau-19631.herokuapp.com/api/v1 NODE_ENV=production react-scripts build",
     "serve": "serve -s build",
